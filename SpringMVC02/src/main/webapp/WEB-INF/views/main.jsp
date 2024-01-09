@@ -29,7 +29,7 @@
   		
   	}
   	function makeView(data){
-  		
+  		alert(data);
   	}
   </script>
 </head>
