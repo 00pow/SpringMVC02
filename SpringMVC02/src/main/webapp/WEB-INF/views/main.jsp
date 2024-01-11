@@ -46,8 +46,22 @@
   	  		listHtml+="<td>"+obj.count+"</td>";
   	  		listHtml+="</tr>";
   		} );
+  		
+  		listHtml+="<tr>";
+  		listHtml+="<td colspan='5'>";
+  		listHtml+="<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
+  		listHtml+="</td>";
+  		listHtml+="</tr>";
   		listHtml+="</table>";
   		$("#view").html(listHtml);
+  	}
+  	function goForm(){
+  		$("#view").css("display","none"); // 감추고
+  		$("#wform").css("display","block"); // 보이고
+  	}
+  	function goList(){
+  		$("#view").css("display","block"); // 보이고
+  		$("#wform").css("display","none"); // 감추고
   	}
   </script>
 </head>
@@ -58,7 +72,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
     <div class="panel-body" id="view">Panel Content</div>
-    <div class="panel-body" style="display:none">
+    <div class="panel-body" id="wform" style="display:none">
     <form action="boardInsert.do" method="post">
     	<table class="table">
     		<tr>
@@ -77,6 +91,7 @@
     			<td colspan="2" align="center">
     				<button type="submit" class="btn btn-success btn-sm">등록</button>
     				<button type="reset" class="btn btn-warning btn-sm">취소</button>
+    				<button type="button" class="btn btn-info btn-sm" onclick="goList()">리스트</button>
     			</td>
     	</table>
     	</form>
