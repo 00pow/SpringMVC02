@@ -27,9 +27,27 @@
   			
   		});
   		
-  	}
-  	function makeView(data){
-  		alert(data);
+  	}							//			0		1		2  ----->
+  	function makeView(data){	// data=[{		},{		},{		},,, ]
+  		var listHtml="<table class='table table-bordered'>";
+  		listHtml+="<tr>";
+  		listHtml+="<td>번호</td>";
+  		listHtml+="<td>제목</td>";
+  		listHtml+="<td>작성자</td>";
+  		listHtml+="<td>작성일</td>";
+  		listHtml+="<td>조회수</td>";
+  		listHtml+="</tr>";
+  		$.each(data, function(index,obj){	// obj={"idx":5,"title":"게시판"~~			}
+  			listHtml+="<tr>";
+  	  		listHtml+="<td>"+obj.idx+"</td>";
+  	  		listHtml+="<td>"+obj.title+"</td>";
+  	  		listHtml+="<td>"+obj.writer+"</td>";
+  	  		listHtml+="<td>"+obj.indate+"</td>";
+  	  		listHtml+="<td>"+obj.count+"</td>";
+  	  		listHtml+="</tr>";
+  		} );
+  		listHtml+="</table>";
+  		$("#view").html(listHtml);
   	}
   </script>
 </head>
@@ -39,7 +57,7 @@
   <h2>Spring MVC02</h2>
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
-    <div class="panel-body">Panel Content</div>
+    <div class="panel-body" id="view">Panel Content</div>
     <div class="panel-footer">인프런_스프1탄_김서영</div>
   </div>
 </div>
