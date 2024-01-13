@@ -40,13 +40,13 @@
   		$.each(data, function(index,obj){	// obj={"idx":5,"title":"게시판"~~			}
   			listHtml+="<tr>";
   	  		listHtml+="<td>"+obj.idx+"</td>";
-  	  		listHtml+="<td><a href='#'>"+obj.title+"</a></td>";
+  	  		listHtml+="<td><a href='javascript:goContent("+obj.idx+")'>"+obj.title+"</a></td>";
   	  		listHtml+="<td>"+obj.writer+"</td>";
   	  		listHtml+="<td>"+obj.indate+"</td>";
   	  		listHtml+="<td>"+obj.count+"</td>";
   	  		listHtml+="</tr>";
   	  		
-  	  		listHtml+="<tr style='display:none'>";
+  	  		listHtml+="<tr id='c"+obj.idx+"' style='display:none'>";
   		  	listHtml+="<td>내용</td>";
   		  	listHtml+="<td colspan='4'>";
   		 	listHtml+="<textarea rows='7' class='form-control'>"+obj.content+"</textarea>";
@@ -93,8 +93,14 @@
   		//$("#title").val("");
   		//$("#content").val("");
   		//$("#writer").val("");
-  		$("#fclear").trigger("click");
-  		
+  		$("#fclear").trigger("click");	
+  	}
+  	function goContent(idx){ // idx = 11 , 10 , 9
+  			if($("#c"+idx).css("display")=="none"){
+  				$("#c"+idx).css("display","table-row"); // 보이게
+  			}else{
+  				$("#c"+idx).css("display","none"); // 감추게
+  			}
   	}
   </script>
 </head>
