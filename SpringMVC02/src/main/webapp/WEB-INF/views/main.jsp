@@ -82,9 +82,10 @@
   			error : function()	{ alert("error"); }
   		});
   		// 폼 초기화
-  		$("#title").val("");
-  		$("#content").val("");
-  		$("#writer").val("");
+  		//$("#title").val("");
+  		//$("#content").val("");
+  		//$("#writer").val("");
+  		$("#fclear").trigger("click");
   		
   	}
   </script>
@@ -114,7 +115,7 @@
     		<tr>
     			<td colspan="2" align="center">
     				<button type="button" class="btn btn-success btn-sm" onclick="goInsert()">등록</button>
-    				<button type="reset" class="btn btn-warning btn-sm">취소</button>
+    				<button type="reset" class="btn btn-warning btn-sm" id="fclear">취소</button>
     				<button type="button" class="btn btn-info btn-sm" onclick="goList()">리스트</button>
     			</td>
     	</table>
