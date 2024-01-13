@@ -80,9 +80,12 @@
   			data : fData,
   			success : loadList,
   			error : function()	{ alert("error"); }
-  			
-  			
   		});
+  		// 폼 초기화
+  		$("#title").val("");
+  		$("#content").val("");
+  		$("#writer").val("");
+  		
   	}
   </script>
 </head>
