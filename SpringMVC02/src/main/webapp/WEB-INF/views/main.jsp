@@ -40,11 +40,19 @@
   		$.each(data, function(index,obj){	// obj={"idx":5,"title":"게시판"~~			}
   			listHtml+="<tr>";
   	  		listHtml+="<td>"+obj.idx+"</td>";
-  	  		listHtml+="<td>"+obj.title+"</td>";
+  	  		listHtml+="<td><a href='#'>"+obj.title+"</a></td>";
   	  		listHtml+="<td>"+obj.writer+"</td>";
   	  		listHtml+="<td>"+obj.indate+"</td>";
   	  		listHtml+="<td>"+obj.count+"</td>";
   	  		listHtml+="</tr>";
+  	  		
+  	  		listHtml+="<tr style='display:none'>";
+  		  	listHtml+="<td>내용</td>";
+  		  	listHtml+="<td colspan='4'>";
+  		 	listHtml+="<textarea rows='7' class='form-control'>"+obj.content+"</textarea>";
+  		  	listHtml+="</td>";
+  	  		listHtml+="</tr>";
+  	  		
   		} );
   		
   		listHtml+="<tr>";
