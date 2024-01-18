@@ -21,7 +21,7 @@
   		$.ajax({
   			url : "boardList.do",
   			type : "get",
-  			dataType : "json",
+  			dataType : "json",  
   			success : makeView,
   			error : function(){	alert("error");	}
   			
