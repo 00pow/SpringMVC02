@@ -102,9 +102,8 @@
   			if($("#c"+idx).css("display")=="none"){
   				
   				$.ajax({
-  					url : "boardContent.do",
+  					url : "board/"+idx,
   					type : "get",
-  					data : { "idx" : idx},
   					dataType : "json",
   					success : function(data){	// data = {	"content": ~~~ }
   						$("#ta"+idx).val(data.content);
@@ -117,9 +116,8 @@
   			}else{
   				$("#c"+idx).css("display","none"); // 감추게
   				$.ajax({
-  					url : "boardCount.do",
-  					type : "get",
-  					data : { "idx" : idx },
+  					url : "board/count/"+idx,
+  					type : "put",
   					dataType : "json",
   					success : function(data){
   						$("#cnt"+idx).text(data.count);
@@ -131,8 +129,8 @@
   	}
   	function goDelete(idx){
   		$.ajax({
-  			url : "boardDelete.do",
-  			type : "get",
+  			url : "board/"+idx,
+  			type : "delete",
   			data : {"idx":idx},
   			success : loadList,
   			error : function(){	alert("error"); }
@@ -153,9 +151,10 @@
   		var title=$("#nt"+idx).val();
   		var content=$("#ta"+idx).val();
   		$.ajax({
-  			url : "boardUpdate.do",
-  			type : "post",
-  			data : {"idx":idx,"title":title,"content":content},
+  			url : "board/update",
+  			type : "put",
+  			contentType:'application/json;charset=utf-8',
+  			data : JSON.stringify{"idx":idx,"title":title,"content":content},
   			success : loadList,
   			error : function(){ alert("error"); }
   				
