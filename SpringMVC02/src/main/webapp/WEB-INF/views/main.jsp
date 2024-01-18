@@ -154,7 +154,7 @@
   			url : "board/update",
   			type : "put",
   			contentType:'application/json;charset=utf-8',
-  			data : JSON.stringify{"idx":idx,"title":title,"content":content},
+  			data : JSON.stringify({"idx":idx,"title":title,"content":content}),
   			success : loadList,
   			error : function(){ alert("error"); }
   				
